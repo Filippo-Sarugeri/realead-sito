@@ -618,6 +618,42 @@
     .radio-label { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: #374151; cursor: pointer; font-family: 'Inter', sans-serif; }
     .radio-label input { accent-color: #1a3a6e; }
 
+    /* Service selector buttons */
+    .service-btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .service-btn {
+      background: #fff; border: 1.5px solid #e5e7eb; border-radius: 12px;
+      padding: 14px 16px; cursor: pointer; text-align: left;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .service-btn:hover { border-color: #c0c4cc; background: #fdfcfb; }
+    .service-btn.active { border-color: #1a3a6e; background: #f5f7fc; box-shadow: 0 0 0 3px rgba(26,58,110,0.08); }
+    .service-btn-title { display: block; font-weight: 600; font-size: 0.875rem; color: #1a3a6e; }
+    .service-btn-sub { display: block; font-size: 0.72rem; color: #9ca3af; margin-top: 3px; }
+    .service-btn.active .service-btn-sub { color: #6b7280; }
+
+    /* Extra service buttons */
+    .extra-btn-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .extra-btn {
+      background: #fff; border: 1.5px solid #e5e7eb; border-radius: 50px;
+      padding: 8px 16px; cursor: pointer; font-family: 'Inter', sans-serif;
+      font-size: 0.8rem; font-weight: 500; color: #374151;
+      display: flex; align-items: center; gap: 6px;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .extra-btn:hover { border-color: #b5944d; color: #1a3a6e; }
+    .extra-btn.active { border-color: #b5944d; background: #fdf8ef; color: #1a3a6e; }
+    .extra-btn span { color: #b5944d; font-weight: 600; }
+
+    /* Express toggle */
+    .express-toggle { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1.5px solid #e5e7eb; border-radius: 10px; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .express-toggle:hover { border-color: #c0c4cc; background: #fdfcfb; }
+    .express-toggle.active { border-color: #1a3a6e; background: #f5f7fc; }
+    .express-toggle-check { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #d1d5db; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
+    .express-toggle.active .express-toggle-check { background: #1a3a6e; border-color: #1a3a6e; }
+    .express-toggle-text { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #374151; flex: 1; }
+    .express-toggle-price { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; color: #b5944d; }
+
     .btn-contact {
       width: 100%; background: #1a3a6e; color: #fff;
       font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
@@ -821,7 +857,7 @@
       <a href="#prezzi">Prezzi</a>
       <a href="#chi-siamo">Chi siamo</a>
     </div>
-    <a href="#contatti" class="btn-nav desktop">Shooting gratuito</a>
+    <a href="#contatti" class="btn-nav desktop">Sconto primo shooting</a>
     <button class="nav-hamburger" id="menuBtn" aria-label="Menu" aria-expanded="false">
       <svg id="iconOpen" width="24" height="24" fill="none" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -837,7 +873,7 @@
   <a href="#servizi" onclick="closeMobile()">Servizi</a>
   <a href="#prezzi" onclick="closeMobile()">Prezzi</a>
   <a href="#chi-siamo" onclick="closeMobile()">Chi siamo</a>
-  <a href="#contatti" onclick="closeMobile()" style="color:#b5944d;">Shooting gratuito →</a>
+  <a href="#contatti" onclick="closeMobile()" style="color:#b5944d;">Sconto primo shooting →</a>
 </div>
 
 <!-- ════════ HERO ════════ -->
@@ -865,7 +901,7 @@
       Una sola visita. Consegna in 72h. Ogni mese, senza eccezioni.
     </p>
     <div class="hero-ctas">
-      <a href="#contatti" class="btn-hero-primary">Richiedi lo shooting gratuito</a>
+      <a href="#contatti" class="btn-hero-primary">Richiedi il tuo sconto</a>
       <a href="#come-funziona" class="btn-hero-secondary">Scopri come funziona</a>
     </div>
     <div class="hero-stats">
@@ -981,7 +1017,7 @@
     <div style="text-align:center; margin-bottom:0;">
       <p class="eyebrow" data-a="up">I Servizi</p>
       <h2 class="section-title" data-a="up" data-d="1">Tre servizi. Un solo partner.</h2>
-      <p class="section-sub" style="max-width:400px; margin:12px auto 0;" data-a="up" data-d="2">Video e Tour 3D disponibili solo nel Pacco Completo.</p>
+      <p class="section-sub" style="max-width:500px; margin:12px auto 0;" data-a="up" data-d="2">Il <strong style="color:#1a3a6e;">Pacco Completo</strong> include tutti e tre i servizi: <strong style="color:#1a3a6e;">Foto HDR + Video 4K + Tour 3D Matterport</strong> — in una sola visita.</p>
     </div>
     <div class="services-grid">
       <div class="service-card" data-a="up" data-d="2">
@@ -1215,23 +1251,23 @@
         <h2 class="contact-title" data-a="up" data-d="1">Iniziamo a lavorare insieme.</h2>
         <p class="contact-tagline" data-a="up" data-d="2">Compila il form e ti risponderemo entro 24 ore.</p>
         <div class="contact-info" data-a="up" data-d="3">
-          <div class="contact-info-row">
+          <a class="contact-info-row" href="mailto:info@realead.eu" style="text-decoration:none; color:inherit;">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
             info@realead.eu
-          </div>
-          <div class="contact-info-row">
+          </a>
+          <a class="contact-info-row" href="tel:+393791346188" style="text-decoration:none; color:inherit;">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
             +39 379 134 6188
-          </div>
+          </a>
           <div class="contact-info-row">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
             Como · Milano · Italia
           </div>
         </div>
         <div class="free-shoot-box" data-a="up" data-d="4">
-          <span class="free-shoot-badge">Shooting gratuito</span>
-          <div class="free-shoot-title">Il tuo primo shooting, zero rischi.</div>
-          <p class="free-shoot-desc">Offriamo uno shooting completo su un immobile a tua scelta. Zero costi, zero rischi. Solo qualità.</p>
+          <span class="free-shoot-badge">Offerta di benvenuto</span>
+          <div class="free-shoot-title">20% di sconto sul tuo primo shooting.</div>
+          <p class="free-shoot-desc">Per le nuove agenzie: sconto del 20% sul primo servizio. Nessun vincolo, nessun contratto. Solo risultati.</p>
         </div>
       </div>
       <div data-a="right" data-d="2">
@@ -1255,20 +1291,45 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="servizio">Servizio</label>
-            <select class="form-input" id="servizio" name="servizio">
-              <option value="completo">Pacco Completo (Foto + Video + Tour 3D)</option>
-              <option value="foto">Solo Fotografia</option>
-              <option value="drone">Fotografia + Drone</option>
-              <option value="altro">Non so ancora</option>
-            </select>
+            <label class="form-label">Servizio *</label>
+            <div class="service-btn-group">
+              <button type="button" class="service-btn active" data-value="Pacco Completo — Foto HDR + Video 4K + Tour 3D">
+                <span class="service-btn-title">Pacco Completo</span>
+                <span class="service-btn-sub">Foto HDR + Video 4K + Tour 3D</span>
+              </button>
+              <button type="button" class="service-btn" data-value="Solo Fotografia HDR">
+                <span class="service-btn-title">Solo Fotografia</span>
+                <span class="service-btn-sub">Foto HDR professionali</span>
+              </button>
+            </div>
+            <input type="hidden" id="servizio" name="servizio" value="Pacco Completo — Foto HDR + Video 4K + Tour 3D" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Extra (opzionale)</label>
+            <div class="extra-btn-group">
+              <button type="button" class="extra-btn" data-value="Express 24h">Express 24h <span>+50€</span></button>
+              <button type="button" class="extra-btn" data-value="Drone extra">Drone extra <span>+45€</span></button>
+              <button type="button" class="extra-btn" data-value="Planimetrie">Planimetrie <span>+50€</span></button>
+            </div>
+            <input type="hidden" id="extra" name="extra" value="" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Consegna</label>
+            <div class="express-toggle" id="expressToggle">
+              <div class="express-toggle-check">
+                <svg id="expressCheck" width="10" height="10" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <span class="express-toggle-text">Consegna Express 24h — ho una scadenza urgente</span>
+              <span class="express-toggle-price">+50€</span>
+            </div>
+            <input type="hidden" id="consegna" name="consegna" value="Standard 72h" />
           </div>
           <div class="form-group">
             <label class="form-label" for="messaggio">Messaggio</label>
             <textarea class="form-input" id="messaggio" name="messaggio" rows="3" placeholder="Descrivimi l'immobile e le tue esigenze…"></textarea>
           </div>
           <button type="submit" class="btn-contact" id="submitBtn">
-            Richiedi lo shooting gratuito
+            Richiedi il tuo sconto
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
             </svg>
@@ -1504,6 +1565,31 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// ── Form service buttons ──────────────────────────────────────────────
+document.querySelectorAll('.service-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('servizio').value = btn.dataset.value;
+  });
+});
+
+// ── Extra buttons (multi-select) ──────────────────────────────────────
+document.querySelectorAll('.extra-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+    const selected = [...document.querySelectorAll('.extra-btn.active')].map(b => b.dataset.value);
+    document.getElementById('extra').value = selected.join(', ') || '—';
+  });
+});
+
+// ── Express toggle ────────────────────────────────────────────────────
+document.getElementById('expressToggle').addEventListener('click', function() {
+  const isActive = this.classList.toggle('active');
+  document.getElementById('expressCheck').style.display = isActive ? 'block' : 'none';
+  document.getElementById('consegna').value = isActive ? 'Express 24h (+50€)' : 'Standard 72h';
+});
+
 // ── Form submit via Formspree ─────────────────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -1520,6 +1606,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
     Email:     form.email.value,
     Telefono:  form.telefono.value || '—',
     Servizio:  form.servizio.value,
+    Extra:     form.extra.value || '—',
+    Consegna:  form.consegna.value,
     Messaggio: form.messaggio.value || '—',
   };
 
@@ -1537,7 +1625,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
       btn.style.opacity    = '1';
       form.reset();
       setTimeout(() => {
-        btn.innerHTML = 'Richiedi lo shooting gratuito <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>';
+        btn.innerHTML = 'Richiedi il tuo sconto <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>';
         btn.style.background = '';
         btn.style.boxShadow  = '';
         btn.disabled = false;
@@ -1550,7 +1638,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     btn.style.background = '#ef4444';
     btn.style.opacity    = '1';
     setTimeout(() => {
-      btn.innerHTML = 'Richiedi lo shooting gratuito <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>';
+      btn.innerHTML = 'Richiedi il tuo sconto <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>';
       btn.style.background = '';
       btn.disabled = false;
     }, 4000);
